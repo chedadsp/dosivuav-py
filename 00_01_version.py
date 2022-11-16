@@ -1,3 +1,5 @@
 import cv2
+import sys
 
-print (cv2.__version__)
+print("Python: ", sys.version)
+print("OpenCV: ", cv2.__version__)
