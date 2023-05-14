@@ -1,7 +1,6 @@
 import cv2 as cv
 from cv2 import COLOR_BGR2GRAY
 import numpy as np
-import matplotlib.pyplot as plt
 
 img = cv.imread('img/tesla.jpg')
 
