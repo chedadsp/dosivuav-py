@@ -3,8 +3,8 @@ import cv2
 import glob
 
 # Define the chess board rows and columns
-rows = 7
-cols = 6
+rows = 5
+cols = 9
 
 # Set the termination criteria for the corner sub-pixel algorithm
 criteria = (cv2.TERM_CRITERIA_MAX_ITER + cv2.TERM_CRITERIA_EPS, 30, 0.001)
@@ -18,7 +18,7 @@ objectPointsArray = []
 imgPointsArray = []
 
 # Loop over the image files
-for path in glob.glob('img/left[0-1][0-9].jpg'):
+for path in glob.glob('img/my_photo[0-1][0-9].jpg'):
     # Load the image and convert it to gray scale
     img = cv2.imread(path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -39,8 +39,8 @@ for path in glob.glob('img/left[0-1][0-9].jpg'):
         cv2.drawChessboardCorners(img, (rows, cols), corners, ret)
     
     # Display the image
-    cv2.imshow('chess board', img)
-    cv2.waitKey(500)
+    cv2.imshow('chess board', gray)
+    cv2.waitKey(20)
 
 # Calibrate the camera and save the results
 ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objectPointsArray, imgPointsArray, gray.shape[::-1], None, None)
@@ -54,20 +54,3 @@ for i in range(len(objectPointsArray)):
     error += cv2.norm(imgPointsArray[i], imgPoints, cv2.NORM_L2) / len(imgPoints)
 
 print("Total error: ", error / len(objectPointsArray))
-
-# Load one of the test images
-img = cv2.imread('img/left12.jpg')
-h, w = img.shape[:2]
-
-# Obtain the new camera matrix and undistort the image
-newCameraMtx, roi = cv2.getOptimalNewCameraMatrix(mtx, dist, (w, h), 1, (w, h))
-undistortedImg = cv2.undistort(img, mtx, dist, None, newCameraMtx)
-
-# Crop the undistorted image
-# x, y, w, h = roi
-# undistortedImg = undistortedImg[y:y + h, x:x + w]
-
-# Display the final result
-cv2.imshow('chess board', np.hstack((img, undistortedImg)))
-cv2.waitKey(0)
-cv2.destroyAllWindows()
