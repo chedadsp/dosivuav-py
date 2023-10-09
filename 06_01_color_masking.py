@@ -1,10 +1,10 @@
 import numpy as np
 import cv2 as cv
 
-cap = cv.VideoCapture(0)
+cap = cv.VideoCapture(2)
 
-lower_color = np.array([5, 50, 50])
-upper_color = np.array([15, 255, 255])
+lower_color = np.array([90, 90, 90])
+upper_color = np.array([120, 255, 255])
 
 while True:
     ret, frame = cap.read()
