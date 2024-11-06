@@ -11,7 +11,13 @@ def getTemplateMatch(img, gray, templateFileName):
 
 
 img = cv.imread("img/red_car.jpg")
-cv.imshow('Find a car?',img)
+t1 = cv.imread("img/template01.jpg")
+t2 = cv.imread("img/template02.jpg")
+t3 = cv.imread("img/template03.jpg")
+cv.imshow('Find a car?', img)
+cv.imshow('Template 1', t1)
+cv.imshow('Template 2', t2)
+cv.imshow('Template 3', t3)
 cv.waitKey(0)
 
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
