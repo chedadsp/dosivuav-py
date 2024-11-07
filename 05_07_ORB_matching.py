@@ -3,6 +3,7 @@ import cv2 as cv
 import matplotlib.pyplot as plt
 
 object = cv.imread("img/template01.jpg")
+# object = cv.imread("img/template03.jpg") # works with different orenation!
 img = cv.imread("img/red_car.jpg")
 
 obj_gray = cv.cvtColor(object, cv.COLOR_BGR2GRAY)
