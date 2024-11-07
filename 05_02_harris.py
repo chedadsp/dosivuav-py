@@ -2,6 +2,7 @@ import numpy as np
 import cv2 as cv
 
 img = cv.imread("img/pattern.png")
+#img = cv.imread("img/my_photo01.jpg")
 #img = cv.imread("img/car_and_road.jpg")
 
 gray = np.float32(cv.cvtColor(img, cv.COLOR_BGR2GRAY))
