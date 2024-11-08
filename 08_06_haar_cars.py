@@ -1,6 +1,7 @@
 import cv2 as cv
 
 cap = cv.VideoCapture('vid/cars.mp4')
+#cap = cv.VideoCapture('vid/slow_traffic_small.mp4')
 #cap = cv.VideoCapture(0)
 haar_cascade = cv.CascadeClassifier('haar/cars.xml')
 

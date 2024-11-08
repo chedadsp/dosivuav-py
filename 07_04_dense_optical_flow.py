@@ -2,6 +2,7 @@ import numpy as np
 import cv2 as cv
 
 cap = cv.VideoCapture('vid/vtest.avi')
+#cap = cv.VideoCapture('vid/slow_traffic_small.mp4')
 ret, frame1 = cap.read()
 
 prvs = cv.cvtColor(frame1, cv.COLOR_BGR2GRAY)
@@ -21,6 +22,7 @@ while True:
     hsv[..., 0] = ang*180/np.pi/2
     hsv[..., 2] = cv.normalize(mag, None, 0, 255, cv.NORM_MINMAX)
     bgr = cv.cvtColor(hsv, cv.COLOR_HSV2BGR)
+    cv.imshow('Input video', frame2)
     cv.imshow('Dense Optical Flow', bgr)
 
     if (cv.waitKey(30) & 0xff) == 27: break

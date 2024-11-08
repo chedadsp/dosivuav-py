@@ -36,7 +36,7 @@ while True:
     x, y, w, h = track_window
     cv.rectangle(frame, (x, y), (x+w, y+h), 255, 2)
     
-    cv.imshow('Meanshift', frame)
+    cv.imshow('CamShift', frame)
 
     if (cv.waitKey(30) & 0xff) == 27: break
 
